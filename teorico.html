@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cálculo Teórico Dumper</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <h1>Cálculo Teórico de Acarreo - Dumper</h1>
+  <p>Modelo simple para comparar operación real vs operación esperada</p>
+</header>
+<nav>
+  <a href="index.html">1. Monitoreo</a>
+  <a href="teorico.html">2. Cálculo teórico</a>
+  <a href="panel.html">3. Panel comparativo</a>
+</nav>
+<main>
+  <section class="card">
+    <h2>Variables de entrada</h2>
+    <div class="form-grid">
+      <label>Distancia de acarreo ida (m): <input id="haulDistance" type="number" value="5" step="0.1"></label>
+      <label>Velocidad cargado (km/h): <input id="loadedSpeed" type="number" value="1.3" step="0.1"></label>
+      <label>Velocidad vacío (km/h): <input id="emptySpeed" type="number" value="1.6" step="0.1"></label>
+      <label>Capacidad nominal (t): <input id="capacity" type="number" value="0.025" step="0.001"></label>
+      <label>Factor de llenado (%): <input id="fillFactor" type="number" value="90"></label>
+      <label>Tiempo carguío (min): <input id="loadTime" type="number" value="0.01" step="0.01"></label>
+      <label>Tiempo descarga (min): <input id="dumpTime" type="number" value="0.005" step="0.005"></label>
+      <label>Demoras operativas (min/ciclo): <input id="delayTime" type="number" value="0.005" step="0.005"></label>
+      <label>Disponibilidad mecánica (%): <input id="availability" type="number" value="85"></label>
+      <label>Utilización (%): <input id="utilization" type="number" value="80"></label>
+    </div>
+    <button id="calcBtn">Calcular y guardar</button>
+    <button id="fitRealBtn" class="secondary">Ajustar con registros reales</button>
+    <p id="fitStatus" class="hint">Valores base calibrados para maqueta. Puedes ajustarlos con el historial del monitoreo.</p>
+  </section>
+
+  <section class="card">
+    <h2>Resultados teóricos</h2>
+    <div class="grid-4">
+      <div class="metric"><span>Tiempo ida</span><strong id="outTime">0 min</strong></div>
+      <div class="metric"><span>Tiempo retorno</span><strong id="returnTime">0 min</strong></div>
+      <div class="metric"><span>Tiempo ciclo</span><strong id="cycleTime">0 min</strong></div>
+      <div class="metric"><span>Ciclos/h</span><strong id="cyclesHour">0</strong></div>
+      <div class="metric"><span>Carga efectiva</span><strong id="effectiveLoad">0 t</strong></div>
+      <div class="metric"><span>Productividad bruta</span><strong id="grossProd">0 t/h</strong></div>
+      <div class="metric"><span>Productividad ajustada</span><strong id="netProd">0 t/h</strong></div>
+      <div class="metric"><span>Velocidad media teórica</span><strong id="avgSpeed">0 km/h</strong></div>
+    </div>
+  </section>
+</main>
+<script src="teorico.js"></script>
+</body>
+</html>

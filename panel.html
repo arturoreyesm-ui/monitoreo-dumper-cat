@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Comparativo Dumper</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <h1>Panel Comparativo Real vs Teórico</h1>
+  <p>Control operacional del dumper mediante visión artificial</p>
+</header>
+<nav>
+  <a href="index.html">1. Monitoreo</a>
+  <a href="teorico.html">2. Cálculo teórico</a>
+  <a href="panel.html">3. Panel comparativo</a>
+</nav>
+<main>
+  <section class="card">
+    <h2>Resumen en vivo</h2>
+    <div class="grid-4">
+      <div class="metric"><span>Velocidad real</span><strong id="realSpeed">0 km/h</strong></div>
+      <div class="metric"><span>Velocidad teórica</span><strong id="theorySpeed">0 km/h</strong></div>
+      <div class="metric"><span>Desviación velocidad</span><strong id="speedDiff">0%</strong></div>
+      <div class="metric"><span>Estado velocidad</span><strong id="speedStatus">-</strong></div>
+      <div class="metric"><span>Ruta</span><strong id="routeStatus">-</strong></div>
+      <div class="metric"><span>Detención</span><strong id="stopStatus">-</strong></div>
+      <div class="metric"><span>Detección IA</span><strong id="aiStatus">-</strong></div>
+      <div class="metric"><span>Semáforo</span><strong id="trafficLight">⚪</strong></div>
+      <div class="metric"><span>Aceptación actual</span><strong id="acceptanceScore">0%</strong></div>
+      <div class="metric"><span>Umbral seguridad</span><strong id="acceptanceThreshold">80%</strong></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>KPIs operacionales</h2>
+    <div class="grid-4">
+      <div class="metric"><span>Distancia real</span><strong id="realDistance">0 m</strong></div>
+      <div class="metric"><span>Ciclos reales</span><strong id="realCycles">0</strong></div>
+      <div class="metric"><span>Ciclo teórico</span><strong id="theoryCycle">0 min</strong></div>
+      <div class="metric"><span>Productividad teórica</span><strong id="theoryProd">0 t/h</strong></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Alertas</h2>
+    <div id="panelAlerts" class="alert">Esperando datos...</div>
+    <button id="testExternalBtn">Probar alerta externa</button>
+    <button id="openMailBtn" class="secondary">Abrir correo manual</button>
+    <p id="externalStatus" class="hint">Las alertas intentan enviarse a <code>arturo.reyes.m@uni.pe</code>. FormSubmit puede requerir confirmación inicial.</p>
+    <p class="hint">Para correo automático confiable, usa Telegram, EmailJS o un backend. Un HTML local no puede verificar entrega de correo.</p>
+  </section>
+
+  <section class="card">
+    <h2>Registro de comparación</h2>
+    <div class="controls">
+      <button id="exportLogBtn">Exportar CSV</button>
+      <button id="clearLogBtn" class="secondary">Limpiar registro</button>
+    </div>
+    <p class="hint">Registros guardados: <strong id="logCount">0</strong>. Solo se registran comparaciones cuando el dumper fue detectado y tuvo movimiento.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Aceptación</th>
+            <th>Estado</th>
+            <th>Vel. real</th>
+            <th>Vel. teórica</th>
+            <th>Diferencia</th>
+            <th>Eventos</th>
+          </tr>
+        </thead>
+        <tbody id="comparisonLogBody"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+<script src="config.js"></script>
+<script src="panel.js"></script>
+</body>
+</html>

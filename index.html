@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monitoreo Dumper 3.5 - Firma Visual</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <h1>Monitoreo Inteligente de Dumper - Nivel 3.5</h1>
+  <p>Registro visual del equipo + cámara en vivo + ruta + KPIs operacionales</p>
+</header>
+
+<nav>
+  <a href="index.html">1. Monitoreo</a>
+  <a href="teorico.html">2. Cálculo teórico</a>
+  <a href="panel.html">3. Panel comparativo</a>
+</nav>
+
+<main>
+  <section class="card">
+    <h2>1. Registrar Dumper CAT</h2>
+    <p>Carga fotos del dumper desde varios ángulos. El sistema usa el color y forma del equipo para detectarlo en vivo.</p>
+    <input type="file" id="referenceInput" accept="image/*" multiple />
+    <button id="loadBundledRefsBtn">Usar fotos del ZIP</button>
+    <button id="buildSignatureBtn">Crear firma visual</button>
+    <button id="clearSignatureBtn" class="secondary">Borrar firma</button>
+    <div id="referenceGallery" class="gallery"></div>
+    <div class="grid-4">
+      <div class="metric"><span>Fotos cargadas</span><strong id="photoCount">0</strong></div>
+      <div class="metric"><span>Firma</span><strong id="keypointCount">0</strong></div>
+      <div class="metric"><span>Estado</span><strong id="signatureState">Sin firma</strong></div>
+      <div class="metric"><span>Método</span><strong>Color + forma</strong></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>2. Cámara y calibración</h2>
+    <div class="controls">
+      <button id="startCameraBtn">Prender cámara</button>
+      <button id="stopCameraBtn" class="secondary">Apagar cámara</button>
+      <button id="clearRouteBtn" class="secondary">Borrar ruta</button>
+      <button id="saveConfigBtn">Guardar configuración</button>
+    </div>
+    <div class="form-grid">
+      <label>Escala real de referencia (m): <input id="realMeters" type="number" value="1" step="0.1"></label>
+      <label>Píxeles de referencia: <input id="pixelMeters" type="number" value="120" step="1"></label>
+      <label>Velocidad máxima permitida (km/h): <input id="maxSpeed" type="number" value="20" step="1"></label>
+      <label>Desvío máximo ruta (px): <input id="maxDeviation" type="number" value="65" step="1"></label>
+      <label>Tiempo máximo detenido (s): <input id="maxStopTime" type="number" value="10" step="1"></label>
+      <label>Confianza mínima (%): <input id="minConfidence" type="number" value="45" min="0" max="100" step="1"></label>
+    </div>
+    <p class="hint">Dibuja la ruta haciendo clic sobre el video. Para maqueta, usa escala aproximada: por ejemplo 1 m real por 120 px, o ajusta según tu maqueta.</p>
+
+    <div class="video-wrap">
+      <video id="video" autoplay playsinline muted></video>
+      <canvas id="overlay"></canvas>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>3. Datos en vivo</h2>
+    <div class="grid-4">
+      <div class="metric"><span>Detección</span><strong id="detected">No</strong></div>
+      <div class="metric"><span>Confianza</span><strong id="confidence">0%</strong></div>
+      <div class="metric"><span>Velocidad</span><strong id="speed">0 km/h</strong></div>
+      <div class="metric"><span>Distancia</span><strong id="distance">0 m</strong></div>
+      <div class="metric"><span>Desvío ruta</span><strong id="deviation">0 px</strong></div>
+      <div class="metric"><span>Tiempo detenido</span><strong id="stopTime">0 s</strong></div>
+      <div class="metric"><span>Ciclos estimados</span><strong id="cycles">0</strong></div>
+      <div class="metric"><span>Estado</span><strong id="status">Esperando</strong></div>
+    </div>
+    <div id="alerts" class="alert">Esperando monitoreo...</div>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
