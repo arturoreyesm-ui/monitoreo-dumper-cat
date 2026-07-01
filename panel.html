@@ -6,16 +6,27 @@
   <title>Panel Comparativo Dumper</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-<header>
-  <h1>Panel Comparativo Real vs Teórico</h1>
-  <p>Control operacional del dumper mediante visión artificial</p>
-</header>
-<nav>
-  <a href="index.html">1. Monitoreo</a>
-  <a href="teorico.html">2. Cálculo teórico</a>
-  <a href="panel.html">3. Panel comparativo</a>
-</nav>
+<body class="surface-mining-theme">
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-photo" aria-hidden="true"><img src="assets/logo_dumper_real.jpg" alt="Camión minero superficial"><span class="scan-line"></span></div>
+      <div><div class="brand-title">MONITOREO <span class="gold">DUMPER</span> 3.5</div><div class="brand-sub">Open Pit Mining · AI Control</div></div>
+    </div>
+    <div class="nav-list"><a class="" href="index.html">▰ Monitoreo</a><a class="" href="teorico.html">▱ Cálculo teórico</a><a class="active" href="panel.html">▦ Panel comparativo</a></div>
+    <div class="system-card"><span>Sistema</span><strong><i class="status-dot"></i>ACTIVO</strong><p class="hint">v3.5.0 · Surface Mining Neon</p></div>
+  </aside>
+  <div class="main-area">
+    <header class="topbar">
+      <div class="hero">
+        <div><h1>PANEL <span class="gold">COMPARATIVO</span></h1><p>Control operacional del dumper mediante visión artificial</p></div>
+        <div class="top-badges">
+          <div class="badge"><small>Cámara activa</small><b>iPhone 16 Pro</b></div>
+          <div class="badge"><small>Conexión</small><b class="online">En línea</b></div>
+          <div class="badge"><small>Modo</small><b>Tiempo real</b></div>
+        </div>
+      </div>
+    </header>
 <main>
   <section class="card">
     <h2>Resumen en vivo</h2>
@@ -40,6 +51,29 @@
       <div class="metric"><span>Ciclos reales</span><strong id="realCycles">0</strong></div>
       <div class="metric"><span>Ciclo teórico</span><strong id="theoryCycle">0 min</strong></div>
       <div class="metric"><span>Productividad teórica</span><strong id="theoryProd">0 t/h</strong></div>
+    </div>
+  </section>
+
+
+  <section class="card cabin-view-card panel-cabin-view" aria-label="Vista conceptual de cabina de camión minero superficial">
+    <div class="blueprint-head">
+      <div>
+        <h2>Cabina del operador · HUD técnico profesional</h2>
+        <p>Vista tipo blueprint/HUD inspirada en cabinas CAT/Komatsu: timón animado, tablero digital, consola, pedales y vista del tajo superficial. Es solo visual: no modifica cálculos ni registros.</p>
+      </div>
+      <span class="bp-tag">CABINA / HUD</span>
+    </div>
+    <div class="cabin-view-wrap">
+      <img src="assets/cabina_dumper_neon.svg" alt="Cabina técnica animada de camión minero superficial" class="cabin-view-img" />
+      <div id="cabinAlertOverlay" class="cabin-alert-overlay" aria-live="polite">
+        <div class="cabin-alert-frame">
+          <div class="cabin-alert-icon">!</div>
+          <div class="cabin-alert-title" id="cabinAlertTitle">CAUTION</div>
+          <div class="cabin-alert-bars"></div>
+          <div class="cabin-alert-detail" id="cabinAlertDetail">Operación fuera del rango óptimo</div>
+        </div>
+      </div>
+      <div class="cad-loop-glass"><b>Operator Cabin HUD</b><span>Timón animado · Tablero técnico · Consola operativa</span></div>
     </div>
   </section>
 
@@ -79,5 +113,8 @@
 </main>
 <script src="config.js"></script>
 <script src="panel.js"></script>
+    <div class="footer-strip"><div><small>Operador</small><b>Arturo Reyes</b></div><div><small>Equipo</small><b>Camión minero superficial</b></div><div><small>Almacenamiento</small><b>Local / nube</b></div><div><small>Sincronización</small><b>Preparado para tiempo real</b></div></div>
+  </div>
+</div>
 </body>
 </html>

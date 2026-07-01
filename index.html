@@ -6,22 +6,31 @@
   <title>Monitoreo Dumper 3.5 - Firma Visual</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-<header>
-  <h1>Monitoreo Inteligente de Dumper - Nivel 3.5</h1>
-  <p>Registro visual del equipo + cámara en vivo + ruta + KPIs operacionales</p>
-</header>
-
-<nav>
-  <a href="index.html">1. Monitoreo</a>
-  <a href="teorico.html">2. Cálculo teórico</a>
-  <a href="panel.html">3. Panel comparativo</a>
-</nav>
-
+<body class="surface-mining-theme">
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-photo" aria-hidden="true"><img src="assets/logo_dumper_real.jpg" alt="Camión minero superficial"><span class="scan-line"></span></div>
+      <div><div class="brand-title">MONITOREO <span class="gold">DUMPER</span> 3.5</div><div class="brand-sub">Open Pit Mining · AI Control</div></div>
+    </div>
+    <div class="nav-list"><a class="active" href="index.html">▰ Monitoreo</a><a class="" href="teorico.html">▱ Cálculo teórico</a><a class="" href="panel.html">▦ Panel comparativo</a></div>
+    <div class="system-card"><span>Sistema</span><strong><i class="status-dot"></i>ACTIVO</strong><p class="hint">v3.5.0 · Surface Mining Neon</p></div>
+  </aside>
+  <div class="main-area">
+    <header class="topbar">
+      <div class="hero">
+        <div><h1>MONITOREO <span class="gold">INTELIGENTE</span></h1><p>Registro visual del equipo + cámara en vivo + ruta + KPIs operacionales</p></div>
+        <div class="top-badges">
+          <div class="badge"><small>Cámara activa</small><b>iPhone 16 Pro</b></div>
+          <div class="badge"><small>Conexión</small><b class="online">En línea</b></div>
+          <div class="badge"><small>Modo</small><b>Tiempo real</b></div>
+        </div>
+      </div>
+    </header>
 <main>
   <section class="card">
-    <h2>1. Registrar Dumper CAT</h2>
-    <p>Carga fotos del dumper desde varios ángulos. El sistema usa el color y forma del equipo para detectarlo en vivo.</p>
+    <h2>1. Registrar Camión minero superficial</h2>
+    <p>Carga fotos del vehículo robótico desde varios ángulos. El sistema usará estas nuevas referencias para detectarlo en vivo.</p>
     <input type="file" id="referenceInput" accept="image/*" multiple />
     <button id="loadBundledRefsBtn">Usar fotos del ZIP</button>
     <button id="buildSignatureBtn">Crear firma visual</button>
@@ -43,6 +52,16 @@
       <button id="clearRouteBtn" class="secondary">Borrar ruta</button>
       <button id="saveConfigBtn">Guardar configuración</button>
     </div>
+
+    <div class="camera-box">
+      <label for="cameraSelect"><strong>Seleccionar cámara:</strong></label>
+      <select id="cameraSelect">
+        <option value="">Detectando cámaras...</option>
+      </select>
+      <button id="refreshCamerasBtn" class="secondary">Actualizar cámaras</button>
+      <p class="hint">Para usar el iPhone, selecciona <strong>Camo Camera</strong>. Si no aparece, abre Camo Studio y luego presiona “Actualizar cámaras”.</p>
+    </div>
+
     <div class="form-grid">
       <label>Escala real de referencia (m): <input id="realMeters" type="number" value="1" step="0.1"></label>
       <label>Píxeles de referencia: <input id="pixelMeters" type="number" value="120" step="1"></label>
@@ -72,9 +91,17 @@
       <div class="metric"><span>Estado</span><strong id="status">Esperando</strong></div>
     </div>
     <div id="alerts" class="alert">Esperando monitoreo...</div>
+    <div class="controls">
+      <button id="muteAlarmBtn" class="secondary">Silenciar alarma</button>
+      <button id="testAlarmBtn" class="secondary">Probar pitido</button>
+    </div>
+    <p class="hint">La alarma sonará automáticamente cuando el ESTADO sea Advertencia o Crítico. En estado Normal no emitirá sonido.</p>
   </section>
 </main>
 
 <script src="app.js"></script>
+    <div class="footer-strip"><div><small>Operador</small><b>Arturo Reyes</b></div><div><small>Equipo</small><b>Camión minero superficial</b></div><div><small>Almacenamiento</small><b>Local / nube</b></div><div><small>Sincronización</small><b>Preparado para tiempo real</b></div></div>
+  </div>
+</div>
 </body>
 </html>

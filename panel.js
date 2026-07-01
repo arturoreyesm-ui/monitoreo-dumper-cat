@@ -162,6 +162,23 @@ async function notify(alerts,cmp,live,th,force=false){
  localStorage.setItem('dumperLastAlertMessage',JSON.stringify({subject,msg,updated:new Date().toISOString()}));
 }
 
+
+function updateCabinAlert(state, alerts){
+ const overlay=g('cabinAlertOverlay');
+ const title=g('cabinAlertTitle');
+ const detail=g('cabinAlertDetail');
+ if(!overlay) return;
+ overlay.classList.remove('active','critical','warning');
+ if(state==='Normal'){
+  overlay.setAttribute('aria-hidden','true');
+  return;
+ }
+ overlay.setAttribute('aria-hidden','false');
+ overlay.classList.add('active', state==='Critico' ? 'critical' : 'warning');
+ if(title) title.textContent = state==='Critico' ? 'OPERACIÓN DETENIDA' : 'CAUTION';
+ if(detail) detail.textContent = (alerts && alerts.length ? alerts.join(' · ') : 'Operación fuera del rango óptimo');
+}
+
 function update(){
  const live=JSON.parse(localStorage.getItem('dumperLive')||'{}');
  const th=JSON.parse(localStorage.getItem('dumperTheory')||'{}');
@@ -185,6 +202,7 @@ function update(){
  if(alerts.length===0){box.textContent='Operacion normal';box.className='alert ok';g('trafficLight').textContent='Verde'}
  else if(state==='Advertencia'){box.textContent='Advertencia: '+alerts.join(' | ');box.className='alert';g('trafficLight').textContent='Amarillo'}
  else{box.textContent='Critico: '+alerts.join(' | ');box.className='alert bad';g('trafficLight').textContent='Rojo'}
+ updateCabinAlert(state, alerts);
  renderLog();
  notify(alerts,cmp,live,th);
 }
